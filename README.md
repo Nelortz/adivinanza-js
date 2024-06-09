@@ -1,10 +1,6 @@
-## Link al curso completo de Javascript en Youtube:
-[VIDEO CURSO GRATIS COMPLETO: JavaScript Desde Cero por Sergie Code](https://youtu.be/N8Xt5rP_DUo)
+# Javascript: Juego de Adivinanza
 
-
-# Tutorial de Javascript: Juego de Adivinanza
-
-Link para ver el resultado: [JUEGO ADIVINANZA TRABAJO TERMINADO](https://juego-adivinanza-tutorial-js.netlify.app/)
+Link para ver el resultado: [JUEGO ADIVINANZA JS](https://adivinanza-js.netlify.app/)
 
 Este repositorio contiene el código de un juego de adivinanza implementado en Javascript. El juego consiste en adivinar un número aleatorio generado por el programa en un rango del 1 al 100.
 
@@ -27,24 +23,28 @@ Estas líneas de código obtienen referencias a los elementos del Document Objec
 
 ### Función para comprobar el número ingresado
 
-    function chequearResultado() {
-        let numeroIngresado = parseInt(numeroEntrada.value);
-    
-        if (isNaN(numeroIngresado) || numeroIngresado < 1 || numeroIngresado > 100) {
-            mensaje.textContent = 'Por favor, introduce un número válido entre 1 y 100.';
-            return;
-        }
-    
-        if (numeroIngresado === numeroAzar) {
-            mensaje.textContent = '¡Felicidades! ¡Has adivinado el número correcto!';
-            mensaje.style.color = 'green';
-            numeroEntrada.disabled = true;
-        } else if (numeroIngresado < numeroAzar) {
-            mensaje.textContent = 'El número es mayor. Intenta de nuevo.';
-            mensaje.style.color = 'red';
-        } else {
-            mensaje.textContent = 'El número es menor. Intenta de nuevo.';
-            mensaje.style.color = 'red';
+    function chequearResultado(){
+    intentos ++
+    intento.textContent = intentos
+    let numeroIngresado = parseInt(numeroEntrada.value)
+
+    if(numeroIngresado < 1 || numeroIngresado > 100 || isNaN (numeroIngresado)){
+        mensaje.textContent = 'Introducir un número válido entre 1 y 100'
+        mensaje.style.color = 'black'
+        return
+    }
+
+    if(numeroIngresado === numeroAzar){
+        mensaje.textContent = 'Has adivinado el número, Felicitaciones !'
+        mensaje.style.color = 'green'
+        numeroEntrada.disabled = true;
+
+    }else if(numeroIngresado < numeroAzar){
+        mensaje.textContent = 'El número es mayor al que se digitó'
+        mensaje.style.color = 'red'
+    }else{
+        mensaje.textContent = 'El número es menor al que se digitó'
+        mensaje.style.color = 'red'
         }
     }
 
